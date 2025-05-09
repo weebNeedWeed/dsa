@@ -1,0 +1,10 @@
+mode: set
+search/main.go:3.42,6.13 2 1
+search/main.go:6.13,9.20 2 1
+search/main.go:9.20,11.4 1 1
+search/main.go:11.9,11.26 1 1
+search/main.go:11.26,13.4 1 1
+search/main.go:13.9,13.26 1 1
+search/main.go:13.26,15.4 1 1
+search/main.go:18.2,18.14 1 1
+search/main.go:21.14,21.15 0 0

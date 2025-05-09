@@ -1,0 +1,11 @@
+mode: set
+queue/circular_buffer/queue.go:10.31,17.2 1 1
+queue/circular_buffer/queue.go:19.30,21.2 1 1
+queue/circular_buffer/queue.go:23.29,25.2 1 1
+queue/circular_buffer/queue.go:27.48,29.2 1 1
+queue/circular_buffer/queue.go:31.34,32.14 1 1
+queue/circular_buffer/queue.go:32.14,33.25 1 1
+queue/circular_buffer/queue.go:36.2,37.42 2 1
+queue/circular_buffer/queue.go:40.31,41.15 1 1
+queue/circular_buffer/queue.go:41.15,42.26 1 1
+queue/circular_buffer/queue.go:45.2,47.10 3 1
