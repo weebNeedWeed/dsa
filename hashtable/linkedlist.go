@@ -1,50 +1,81 @@
 package main
 
-type Node[T any] struct {
-	Key  T
-	Next *Node[T]
+import "fmt"
+
+type Node struct {
+	Key  HtItem
+	Next *Node
 }
 
-func NewNode[T any](key T) *Node[T] {
-	return &Node[T]{key, nil}
+func NewNode(key HtItem) *Node {
+	return &Node{key, nil}
 }
 
-type LinkedList[T any] struct {
-	Head *Node[T]
+type LinkedList struct {
+	Head *Node
 	Size int
 }
 
-func NewLinkedList[T any]() *LinkedList[T] {
-	return &LinkedList[T]{nil, 0}
+func NewLinkedList() *LinkedList {
+	return &LinkedList{nil, 0}
 }
 
-// func (l *LinkedList) PushFront(key int) {
-// 	l.Size++
+func (l *LinkedList) PushFront(key HtItem) {
+	l.Size++
 
-// 	if l.Head == nil {
-// 		l.Head = NewNode(key)
-// 		return
-// 	}
+	if l.Head == nil {
+		l.Head = NewNode(key)
+		return
+	}
 
-// 	n := NewNode(key)
-// 	n.Next = l.Head.Next
+	n := NewNode(key)
+	n.Next = l.Head
 
-// 	l.Head = n
-// }
+	l.Head = n
+}
 
-// func (l *LinkedList) Search(key int) bool {
-// 	if l.Head == nil {
-// 		return false
-// 	}
+func (l *LinkedList) SearchByKeyOfHtItem(key int) bool {
+	if l.Head == nil {
+		return false
+	}
 
-// 	p := l.Head
-// 	for p != nil {
-// 		if p.Key == key {
-// 			return true
-// 		}
+	p := l.Head
+	for p != nil {
+		if p.Key.Key == key {
+			return true
+		}
 
-// 		p = p.Next
-// 	}
+		p = p.Next
+	}
 
-// 	return false
-// }
+	return false
+}
+
+func (l *LinkedList) DeleteByHtItemKey(key int) {
+	if l.Head == nil {
+		return
+	}
+
+	p := l.Head
+	parent := l.Head
+
+	for p != nil && p.Key.Key != key {
+		parent = p
+		p = p.Next
+	}
+
+	if p != nil {
+		l.Size--
+		parent.Next = p.Next
+	}
+}
+
+func (l *LinkedList) Print() {
+	p := l.Head
+	for p != nil {
+		fmt.Printf("%d:%d\t", p.Key.Key, p.Key.Value)
+		p = p.Next
+	}
+
+	fmt.Println()
+}
